@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareTools - Pitch Deck تفاعلي | عرض تقديمي للمستثمرين</title>
+    <!-- Tailwind + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', 'Cairo', sans-serif; }
+        body { background: #F1F5F9; direction: rtl; padding: 2rem; }
+        .slide {
+            max-width: 1200px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            overflow: hidden;
+            transition: transform 0.2s;
+            page-break-after: always;
+            break-inside: avoid;
+        }
+        .slide-content { padding: 2.5rem; }
+        .slide-number { font-size: 0.8rem; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 1rem; margin-top: 1rem; text-align: center; }
+        .badge-green { background: #E9F7EF; color: #2BA84A; border-radius: 40px; padding: 4px 16px; font-size: 0.8rem; font-weight: 600; display: inline-block; }
+        .stat-number { font-size: 2.8rem; font-weight: 800; color: #0B2D5B; }
+        .btn-prev, .btn-next { position: fixed; bottom: 20px; background: #0B2D5B; color: white; border-radius: 40px; padding: 10px 20px; z-index: 100; cursor: pointer; font-weight: bold; }
+        .btn-prev { right: 20px; }
+        .btn-next { left: 20px; }
+        @media print {
+            body { background: white; padding: 0; }
+            .btn-prev, .btn-next { display: none; }
+            .slide { break-inside: avoid; page-break-after: always; box-shadow: none; margin: 0 auto 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="btn-prev" id="prevSlide"><i class="fas fa-chevron-right"></i> السابق</div>
+<div class="btn-next" id="nextSlide">التالي <i class="fas fa-chevron-left"></i></div>
+
+<div id="slides-container">
+    <!-- شريحة 1: الغلاف -->
+    <div class="slide">
+        <div class="bg-premium text-white p-8 text-center" style="background: linear-gradient(135deg, #0B2D5B 0%, #0A2449 100%);">
+            <i class="fas fa-tools text-6xl mb-4 text-[#34C759]"></i>
+            <h1 class="text-5xl font-extrabold">ShareTools</h1>
+            <p class="text-xl mt-2 opacity-90">لا تشترِ أداة ستستخدمها مرة واحدة... استأجرها عبر ShareTools</p>
+            <div class="mt-8 flex justify-center gap-6 text-sm">
+                <span><i class="fas fa-map-marker-alt"></i> أيت ملول - المغرب </span>
+                <span><i class="fas fa-chart-line"></i> Smart-tools 2026</span>
+            </div>
+        </div>
+        <div class="slide-content text-center">
+            <p class="text-gray-600">عرض تقديمي للمستثمرين | الإصدار 1.0</p>
+            <div class="mt-4 flex justify-center gap-4 text-[#0B2D5B]">
+                <span><i class="fab fa-twitter"></i> @ShareTools</span>
+                <span><i class="fab fa-linkedin"></i> /ماستر الشريعة والابتكار الرقمي</span>
+            </div>
+        </div>
+        <div class="slide-number">1 / 20</div>
+    </div>
+
+    <!-- شريحة 2: المشكلة (Problem) -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">📌 المشكلة</span>
+            <h2 class="text-3xl font-bold text-[#0B2D5B] mt-2">المشكلة: هدر المال وشراء أدوات تُستخدم لمرة واحدة</h2>
+            <div class="grid md:grid-cols-2 gap-6 mt-6">
+                <div><i class="fas fa-wrench text-4xl text-[#34C759]"></i><p class="font-bold mt-2">80% من الأدوات المنزلية تستخدم أقل من 3 مرات</p><p class="text-gray-500">المصدر: دراسة استهلاكية MENA</p></div>
+                <div><i class="fas fa-coins text-4xl text-[#34C759]"></i><p class="font-bold mt-2">فقدان فرصة دخل إضافي لأصحاب الأدوات</p><p class="text-gray-500">الأدوات الخاملة = رأس مال معطل</p></div>
+                <div><i class="fas fa-store text-4xl text-[#34C759]"></i><p class="font-bold mt-2">غياب منصة موثوقة للتأجير بين الأفراد</p><p class="text-gray-500">لا توجد ثقة أو تأمين أو دفع آمن</p></div>
+                <div><i class="fas fa-chart-line text-4xl text-[#34C759]"></i><p class="font-bold mt-2">سوق الأدوات في المغرب: 3.2 مليار درهم</p><p class="text-gray-500">جزء كبير يذهب للشراء بدل التأجير</p></div>
+            </div>
+            <div class="mt-6 bg-gray-50 p-4 rounded-xl"><i class="fas fa-chart-simple"></i> رسم بياني: نسبة الشراء مقابل التأجير في المغرب (90% شراء، 10% تأجير تقليدي)</div>
+        </div>
+        <div class="slide-number">2 / 20</div>
+    </div>
+
+    <!-- شريحة 3: الحل (Solution) -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">💡 الحل</span>
+            <h2 class="text-3xl font-bold text-[#0B2D5B] mt-2">ShareTools: منصة شاملة لمشاركة الأدوات بذكاء</h2>
+            <div class="grid md:grid-cols-3 gap-4 mt-6">
+                <div class="text-center p-4 border rounded-2xl"><i class="fas fa-mobile-alt text-3xl text-[#34C759]"></i><h3 class="font-bold">تطبيق ويب + موبايل</h3><p class="text-sm">RTL، دعم العربية/الإنجليزية/الفرنسية</p></div>
+                <div class="text-center p-4 border rounded-2xl"><i class="fas fa-shield-alt text-3xl text-[#34C759]"></i><h3 class="font-bold">ثقة وأمان</h3><p class="text-sm">تحقق الهوية + تأمين + ضمان Escrow</p></div>
+                <div class="text-center p-4 border rounded-2xl"><i class="fas fa-robot text-3xl text-[#34C759]"></i><h3 class="font-bold">ذكاء اصطناعي</h3><p class="text-sm">توصيات مخصصة، تسعير ديناميكي</p></div>
+            </div>
+            <div class="mt-6 flex justify-center"><img src="image/logo1.png" class="rounded-xl shadow" alt="Mockup"></div>
+        </div>
+        <div class="slide-number">3 / 20</div>
+    </div>
+
+    <!-- شريحة 4: المنتج – الميزات الرئيسية -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">⚙️ المنتج</span>
+            <h2 class="text-2xl font-bold">منصة متكاملة: من البحث إلى الدفع</h2>
+            <div class="grid grid-cols-2 gap-4 mt-5">
+                <div><i class="fas fa-search text-[#34C759]"></i> بحث متقدم وفلاتر ذكية</div>
+                <div><i class="fas fa-calendar-alt text-[#34C759]"></i> تقويم التوفر الفوري</div>
+                <div><i class="fas fa-comments text-[#34C759]"></i> محادثة مدمجة مع المالك</div>
+                <div><i class="fas fa-credit-card text-[#34C759]"></i> دفع آمن عبر Stripe + محفظة</div>
+                <div><i class="fas fa-chart-line text-[#34C759]"></i> لوحة تحليلية للمستخدم والمسؤول</div>
+                <div><i class="fas fa-hand-holding-usd text-[#34C759]"></i> نظام Escrow لحماية الطرفين</div>
+            </div>
+            <div class="mt-5 bg-[#E9F7EF] p-3 rounded"><i class="fas fa-star-of-life"></i> خاصية فريدة: "خطة حماية الأداة" ضد التلف والسرقة (شراكة مع AXA)</div>
+        </div>
+        <div class="slide-number">4 / 20</div>
+    </div>
+
+    <!-- شريحة 5: السوق المستهدف -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">🌍 السوق</span>
+            <h2 class="text-3xl font-bold">السوق المستهدف: المغرب وشمال أفريقيا و الشرق الأوسط </h2>
+            <div class="flex justify-between gap-4 mt-6">
+                <div class="text-center"><div class="stat-number">38M</div><div>سكان المغرب</div><div class="text-sm">10 ملايين أسرة تمتلك أدوات</div></div>
+                <div class="text-center"><div class="stat-number">450M</div><div>سكان MENA</div><div>سوق واعد للاقتصاد التشاركي</div></div>
+                <div class="text-center"><div class="stat-number">$128B</div><div>حجم سوق الأدوات</div><div>نسبة تأجير قابلة للنمو 400%</div></div>
+            </div>
+            <div class="mt-6 p-4 bg-gray-50 rounded"><i class="fas fa-chart-pie"></i> رسم بياني: حصة السوق القابلة للتعطيل (حالياً 2% فقط تأجير بين الأفراد)</div>
+        </div>
+        <div class="slide-number">5 / 20</div>
+    </div>
+
+    <!-- شريحة 6: نموذج العمل -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">💰 نموذج الإيرادات</span>
+            <h2 class="text-3xl font-bold">4 قنوات لتحقيق الإيرادات</h2>
+            <div class="grid grid-cols-2 gap-5 mt-5">
+                <div class="border p-4 rounded-xl"><i class="fas fa-percent text-2xl text-[#34C759]"></i><h3>عمولة (15%)</h3><p>من كل عملية تأجير ناجحة</p></div>
+                <div class="border p-4 rounded-xl"><i class="fas fa-shield-alt text-2xl text-[#34C759]"></i><h3>باقة الحماية</h3><p>5% من قيمة الإيجار اختياري</p></div>
+                <div class="border p-4 rounded-xl"><i class="fas fa-calendar-week text-2xl text-[#34C759]"></i><h3>الاشتراكات المميزة</h3><p>للمالكين المحترفين (99 MAD/شهر)</p></div>
+                <div class="border p-4 rounded-xl"><i class="fas fa-ad text-2xl text-[#34C759]"></i><h3>إعلانات ممولة</h3><p>ترقية الأدوات في نتائج البحث</p></div>
+            </div>
+        </div>
+        <div class="slide-number">6 / 20</div>
+    </div>
+
+    <!-- شريحة 7: التحليل المالي (توقعات) -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">📈 توقعات مالية</span>
+            <h2 class="text-3xl font-bold">نمو الإيرادات والأرباح</h2>
+            <canvas id="financialChart" width="400" height="200" style="max-height: 200px;"></canvas>
+<div class="mt-6 flex justify-center"><img src="image/logo2.png" class="rounded-xl shadow" alt="Mockup"></div>
+            <div class="grid grid-cols-3 gap-2 mt-4 text-center">
+                <div><span class="font-bold">السنة 1</span><br>1.2M MAD</div>
+                <div><span class="font-bold">السنة 2</span><br>5.4M MAD</div>
+                <div><span class="font-bold">السنة 3</span><br>18.7M MAD</div>
+            </div>
+            <p class="text-sm mt-3">* توقعات قائمة على معدل نمو 300% سنوياً واختراق 1% من السوق القابل</p>
+        </div>
+        <div class="slide-number">7 / 20</div>
+    </div>
+
+    <!-- شريحة 8: قنوات التسويق -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">📢 التسويق</span>
+            <h2 class="text-3xl font-bold">استراتيجية اكتساب المستخدمين</h2>
+            <div class="flex flex-wrap gap-5 mt-5">
+                <div><i class="fab fa-instagram text-2xl"></i> مؤثرون محليون</div>
+                <div><i class="fab fa-google"></i> SEO & Google Ads</div>
+                <div><i class="fas fa-handshake"></i> شراكات مع مراكز الخدمة</div>
+                <div><i class="fas fa-users"></i> برنامج إحالة (احصل على 50 MAD)</div>
+            </div>
+            <div class="mt-6 bg-gray-100 p-4 rounded"><i class="fas fa-chart-line"></i> خريطة: معدل اختراق سريع في الدار البيضاء، مراكش، طنجة ثم التوسع إقليمياً</div>
+        </div>
+        <div class="slide-number">8 / 20</div>
+    </div>
+
+    <!-- شريحة 9: الفريق المؤسس -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">👥 الفريق</span>
+            <h2 class="text-3xl font-bold">فريق متكامل من الخبراء</h2>
+            <div class="grid md:grid-cols-4 gap-4 mt-6">
+                <div class="text-center"><img src="image/1.png" class="w-24 h-24 rounded-full mx-auto"><h3>بوبكر ميس</h3><p class="text-sm">CEO – 10 أعوام تقنية</p></div>
+                <div class="text-center"><img src="image/2.png" class="w-24 h-24 rounded-full mx-auto"><h3>بدر الريمش</h3><p class="text-sm">CMO – تسويق منصات</p></div>
+                <div class="text-center"><img src="image/3.png" class="w-24 h-24 rounded-full mx-auto"><h3>محمد الأمين أشن</h3><p class="text-sm">COO – عمليات لوجستية</p></div>
+                <div class="text-center"><img src="image/4.png" class="w-24 h-24 rounded-full mx-auto"><h3>عمر خلود</h3><p class="text-sm">CFO & CTO – مالي وتقني</p></div>
+            </div>
+            <p class="text-center mt-4">+ 5 مطورين ومصممين ومسؤولي دعم</p>
+        </div>
+        <div class="slide-number">9 / 20</div>
+    </div>
+
+    <!-- شريحة 10: الميزة التنافسية -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">🏆 الميزة التنافسية</span>
+            <h2 class="text-3xl font-bold">لماذا ShareTools تتفوق؟</h2>
+            <ul class="list-disc pr-6 mt-4 space-y-2">
+                <li>🔒 نظام هوية موثق + تأمين شامل (لا يوجد منافس محلي يوفره)</li>
+                <li>🤖 الذكاء الاصطناعي للتوصيات والتسعير الديناميكي لأول مرة في المغرب</li>
+                <li>📱 تجربة مستخدم رائعة (RTL، بسيطة مثل Uber)</li>
+                <li>🤝 دعم متعدد اللغات واستجابة سريعة للنزاعات</li>
+            </ul>
+            <div class="mt-6 flex gap-4"><div class="border p-2 rounded"><i class="fab fa-airbnb"></i> مستوحى من Airbnb</div><div class="border p-2 rounded"><i class="fab fa-uber"></i> نموذج مرن</div></div>
+        </div>
+        <div class="slide-number">10 / 20</div>
+    </div>
+
+    <!-- شريحة 11: الأثر الاجتماعي -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">🌱 الأثر الاجتماعي</span>
+            <h2 class="text-3xl font-bold">تمكين الاقتصاد التشاركي وتعزيز الاستدامة</h2>
+            <div class="grid md:grid-cols-2 gap-5 mt-4">
+                <div><i class="fas fa-chart-line text-3xl"></i> خلق فرص دخل إضافية لأكثر من 10,000 أسرة</div>
+                <div><i class="fas fa-recycle text-3xl"></i> تقليل البصمة الكربونية عبر إعادة استخدام الأدوات</div>
+                <div><i class="fas fa-users text-3xl"></i> دعم الحرفيين والشركات الصغيرة</div>
+                <div><i class="fas fa-school text-3xl"></i> برامج تدريبية لاستخدام الأدوات بأمان</div>
+            </div>
+        </div>
+        <div class="slide-number">11 / 20</div>
+    </div>
+
+    <!-- شريحة 12: خطة التوسع -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">🗺️ خريطة الطريق</span>
+            <h2 class="text-3xl font-bold">المراحل القادمة</h2>
+            <div class="relative mt-6 border-r-4 border-[#34C759] pr-4 space-y-4">
+                <div><span class="font-bold">Q3 2026:</span> إطلاق تجريبي في تارودانت - ايت ملول - اولاد تايمة – 500 مستخدم</div>
+                <div><span class="font-bold">Q4 2026:</span> التوسع لمراكش وطنجة، شراكات تأمين</div>
+                <div><span class="font-bold">Q1 2027:</span> إضافة الذكاء الاصطناعي كامل، جولة استثمار Seed</div>
+                <div><span class="font-bold">2028:</span> التوسع عربيا وعالميا</div>
+            </div>
+        </div>
+        <div class="slide-number">12 / 20</div>
+    </div>
+
+    <!-- شريحة 13: طلب الاستثمار -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">💰 طلب الاستثمار</span>
+            <h2 class="text-3xl font-bold">نحن نبحث عن 500,000 دولار</h2>
+            <div class="grid grid-cols-2 gap-4 mt-4">
+                <div><i class="fas fa-code"></i> تطوير المنصة والذكاء الاصطناعي: 40%</div>
+                <div><i class="fas fa-bullhorn"></i> التسويق والاكتساب: 35%</div>
+                <div><i class="fas fa-user-plus"></i> توسيع الفريق: 15%</div>
+                <div><i class="fas fa-file-signature"></i> الشؤون القانونية والتأمين: 10%</div>
+            </div>
+            <div class="mt-5 p-3 bg-gray-100 rounded"><i class="fas fa-chart-simple"></i> استخدام الأموال يدر عائداً متوقعاً 4 أضعاف خلال 3 سنوات</div>
+        </div>
+        <div class="slide-number">13 / 20</div>
+    </div>
+
+    <!-- شريحة 14: الشراكات الاستراتيجية -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">🤝 شراكات</span>
+            <h2 class="text-3xl font-bold">شركاؤنا الحاليون والمستهدفون</h2>
+            <div class="flex flex-wrap gap-6 justify-center mt-5">
+                <div class="text-center"><i class="fab fa-stripe fa-3x"></i><p>Stripe (دفع)</p></div>
+                <div class="text-center"><i class="fas fa-building fa-3x"></i><p>AXA Maroc (تأمين)</p></div>
+                <div class="text-center"><i class="fab fa-google fa-3x"></i><p>Google Maps API</p></div>
+                <div class="text-center"><i class="fas fa-truck fa-3x"></i><p>شركة InDrive (توصيل)</p></div>
+            </div>
+        </div>
+        <div class="slide-number">14 / 20</div>
+    </div>
+
+    <!-- شريحة 15: الجذب المبكر (Traction) -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">🚀 الجذب المبكر</span>
+            <h2 class="text-3xl font-bold">إنجازاتنا حتى الآن</h2>
+            <div class="grid grid-cols-2 gap-4 mt-4">
+                <div><span class="stat-number">250+</span><br>مستخدم مسجل (تجريبي)</div>
+                <div><span class="stat-number">78</span><br>أداة مدرجة</div>
+                <div><span class="stat-number">95%</span><br>رضا المستخدمين التجريبيين</div>
+                <div><span class="stat-number">12</span><br>شريك محلي</div>
+            </div>
+            <p class="text-sm mt-4">* مرحلة ما قبل الإطلاق – طلب أولي قوي</p>
+        </div>
+        <div class="slide-number">15 / 20</div>
+    </div>
+
+    <!-- شريحة 16: الضمانات والأمان -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">🔐 الثقة</span>
+            <h2>مكونات الأمان في ShareTools</h2>
+            <ul class="list-disc pr-5 mt-3"><li>تحقق من الهوية عبر البطاقة الوطنية + التعرف على الوجه</li><li>نظام تصديقات وتقييمات بعد كل عملية</li><li>ضمان Escrow: الأموال محتجزة حتى رضا الطرفين</li><li>تأمين ضد الأضرار والسرقة يصل إلى 10,000 درهم</li></ul>
+            <div class="mt-4 bg-yellow-50 p-3 rounded"><i class="fas fa-life-ring"></i> فريق حل النزاعات متاح 24/7</div>
+        </div>
+        <div class="slide-number">16 / 20</div>
+    </div>
+
+    <!-- شريحة 17: شهادات المستخدمين (Testimonials) -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">💬 آراء المستخدمين التجريبيين</span>
+            <div class="grid md:grid-cols-2 gap-5 mt-5">
+                <div class="bg-gray-50 p-4 rounded-xl"><i class="fas fa-quote-right"></i><p>"سهولة الاستخدام والأمان جعلاني أثق في تأجير أدواتي. بالفعل حققت دخلاً إضافياً."</p><p class="font-bold mt-2">– يوسف، صاحب أداة</p></div>
+                <div class="bg-gray-50 p-4 rounded-xl"><i class="fas fa-quote-right"></i><p>"بدلاً من شراء مثقاب بـ 1000 درهم، استأجرته بـ 80 درهم. خدمة رائعة."</p><p class="font-bold mt-2">– سناء، مستأجرة</p></div>
+            </div>
+        </div>
+        <div class="slide-number">17 / 20</div>
+    </div>
+
+    <!-- شريحة 18: البيانات والتقنيات -->
+    <div class="slide">
+        <div class="slide-content">
+            <span class="badge-green">⚙️ التقنيات المستخدمة</span>
+            <h2 class="text-2xl font-bold">منصة حديثة وقابلة للتطوير</h2>
+            <div class="flex flex-wrap gap-3 mt-4"><span class="bg-gray-200 px-3 py-1 rounded-full">Next.js</span><span class="bg-gray-200 px-3 py-1 rounded-full">TypeScript</span><span class="bg-gray-200 px-3 py-1 rounded-full">Supabase</span><span class="bg-gray-200 px-3 py-1 rounded-full">PostgreSQL</span><span class="bg-gray-200 px-3 py-1 rounded-full">Stripe</span><span class="bg-gray-200 px-3 py-1 rounded-full">Firebase</span><span class="bg-gray-200 px-3 py-1 rounded-full">GPT-4 API</span></div>
+            <div class="mt-6"><i class="fas fa-chart-network"></i> معمارية متعددة المستويات تضمن الأمان والأداء العالي.</div>
+        </div>
+        <div class="slide-number">18 / 20</div>
+    </div>
+
+    <!-- شريحة 19: الدعوة للاستثمار -->
+    <div class="slide">
+        <div class="slide-content text-center">
+            <span class="badge-green">🌟 انضم إلينا</span>
+            <h2 class="text-4xl font-bold text-[#0B2D5B]">استثمر في مستقبل الاقتصاد التشاركي</h2>
+            <p class="text-lg mt-4">شارك في جولة التمويل الأولية لـ ShareTools</p>
+            <div class="mt-6 bg-[#0B2D5B] text-white p-6 rounded-2xl">
+                <i class="fas fa-envelope fa-2x"></i>
+                <p class="font-bold mt-2">apptice.educ@gmail.com</p>
+                <p>0684899725 | bwebtech.github.io/smart-tools / https://smart-share.my.canva.site/ </p>
+            </div>
+            <p class="mt-5">نتطلع لشراكتك في بناء أول منصة إقليمية لمشاركة الأدوات.</p>
+        </div>
+        <div class="slide-number">19 / 20</div>
+    </div>
+
+    <!-- شريحة 20: ختامية / أسئلة -->
+    <div class="slide">
+        <div class="slide-content text-center">
+            <i class="fas fa-question-circle text-6xl text-[#34C759]"></i>
+            <h2 class="text-4xl font-bold mt-3">لديك أسئلة؟</h2>
+            <p class="text-xl mt-2">نحن هنا للإجابة</p>
+            <div class="mt-8 flex justify-center gap-8">
+                <div><i class="fab fa-whatsapp text-green-500"></i> +212 684899725</div>
+                <div><i class="fas fa-calendar-alt"></i> احجز اجتماعاً مباشراً</div>
+            </div>
+            <div class="mt-10 text-sm text-gray-400">ShareTools – ثورتنا في مشاركة الأدوات تبدأ من المغرب</div>
+        </div>
+        <div class="slide-number">20 / 20</div>
+    </div>
+</div>
+
+<script>
+    // التنقل بين الشرائح
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        if (index < 0) index = 0;
+        if (index >= slides.length) index = slides.length - 1;
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index ? 'block' : 'none';
+        });
+        currentIndex = index;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.getElementById('prevSlide').addEventListener('click', () => showSlide(currentIndex - 1));
+    document.getElementById('nextSlide').addEventListener('click', () => showSlide(currentIndex + 1));
+
+    // رسم رسم بياني بسيط في الشريحة 7
+    const ctx = document.getElementById('financialChart')?.getContext('2d');
+    if (ctx) {
+        new Chart(ctx, {
+            type: 'line',
+            data: { labels: ['Year 1', 'Year 2', 'Year 3'], datasets: [{ label: 'Revenue (M MAD)', data: [1.2, 5.4, 18.7], borderColor: '#34C759', backgroundColor: 'rgba(52,199,89,0.1)', fill: true, tension: 0.3 }] }
+        });
+    }
+
+    showSlide(0);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
